@@ -6,6 +6,8 @@ node_modules
 # local env files
 .env.local
 .env.*.local
+# .env
+# .env.test
 
 # Log files
 npm-debug.log*
@@ -21,3 +23,6 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# prettier files
+.prettier*
