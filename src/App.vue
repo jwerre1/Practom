@@ -1,10 +1,30 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/signup">Sign Up</router-link> |
+    <router-link to="/signin">Sign In</router-link> |
+    <a href="#" @click.prevent="signout">Sign Out</a>
   </div>
   <router-view />
 </template>
+
+<script>
+import { handleSignOut } from "@/services/DatabaseService.js";
+
+export default {
+  methods: {
+    async signout() {
+      try {
+        const obj = await handleSignOut();
+        console.log(obj);
+        if (!obj.error) this.$router.push("/");
+      } catch (err) {
+        console.log("catch err", err);
+      }
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
